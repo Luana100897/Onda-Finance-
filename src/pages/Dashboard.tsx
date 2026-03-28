@@ -28,7 +28,7 @@ export function Dashboard() {
           <div className="sidebar-logo-icon">
             <Wallet color="white" size={18} />
           </div>
-          <span className="sidebar-logo-name">FintechFlow</span>
+          <span className="sidebar-logo-name">OndaFinance</span>
         </div>
 
         <nav className="sidebar-nav">
