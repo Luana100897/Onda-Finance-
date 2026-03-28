@@ -4,7 +4,7 @@ import { useTransactions } from '@/hooks/useTransactions';
 import { TransferForm } from '@/components/forms/TransferForm';
 import {
   Eye, EyeOff, LayoutDashboard, SendHorizontal, LogOut,
-  ArrowUpRight, ArrowDownLeft, Wallet, TrendingUp,
+  ArrowUpRight, ArrowDownLeft, Wallet, TrendingUp, FileText, X,
 } from 'lucide-react';
 import './dashboard.css';
 
@@ -13,6 +13,7 @@ export function Dashboard() {
   const { data: transactions, isLoading } = useTransactions();
   const [showBalance, setShowBalance] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isExtratoOpen, setIsExtratoOpen] = useState(false);
 
   return (
     <div className="dashboard-wrapper">
@@ -116,7 +117,7 @@ export function Dashboard() {
         <div className="transactions-card">
           <div className="transactions-header">
             <h2 className="transactions-title">Últimas Movimentações</h2>
-            <button className="transactions-link-btn">Ver extrato</button>
+            <button className="transactions-link-btn" onClick={() => setIsExtratoOpen(true)}>Ver extrato</button>
           </div>
 
           {isLoading ? (
@@ -190,6 +191,79 @@ export function Dashboard() {
             </div>
             <div className="modal-body">
               <TransferForm onSuccess={() => setIsModalOpen(false)} />
+            </div>
+          </div>
+        </div>
+      )}
+
+      {isExtratoOpen && (
+        <div
+          className="extrato-overlay"
+          onClick={() => setIsExtratoOpen(false)}
+        >
+          <div
+            className="extrato-panel"
+            onClick={e => e.stopPropagation()}
+          >
+            <div className="extrato-header">
+              <div className="extrato-header-title">
+                <div className="extrato-header-icon">
+                  <FileText size={18} color="#10b981" />
+                </div>
+                <div>
+                  <h2 className="extrato-h2">Extrato</h2>
+                  <p className="extrato-subtitle">Todas as movimentações</p>
+                </div>
+              </div>
+              <button
+                className="modal-close-btn"
+                onClick={() => setIsExtratoOpen(false)}
+                aria-label="Fechar extrato"
+              >
+                <X size={16} />
+              </button>
+            </div>
+
+            <div className="extrato-summary">
+              <div className="extrato-summary-item extrato-summary-in">
+                <p className="extrato-summary-label">Entradas</p>
+                <p className="extrato-summary-value">
+                  + R$ {transactions
+                    ?.filter(t => t.type === 'incoming')
+                    .reduce((acc, t) => acc + t.amount, 0)
+                    .toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+                </p>
+              </div>
+              <div className="extrato-summary-divider" />
+              <div className="extrato-summary-item extrato-summary-out">
+                <p className="extrato-summary-label">Saídas</p>
+                <p className="extrato-summary-value">
+                  − R$ {transactions
+                    ?.filter(t => t.type === 'outgoing')
+                    .reduce((acc, t) => acc + t.amount, 0)
+                    .toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+                </p>
+              </div>
+            </div>
+
+            <div className="extrato-list">
+              {transactions?.map((t) => (
+                <div key={t.id} className="extrato-item">
+                  <div className={`extrato-item-icon ${t.type}`}>
+                    {t.type === 'incoming'
+                      ? <ArrowDownLeft size={18} />
+                      : <ArrowUpRight size={18} />}
+                  </div>
+                  <div className="extrato-item-info">
+                    <p className="extrato-item-desc">{t.description}</p>
+                    <p className="extrato-item-date">{t.date}</p>
+                  </div>
+                  <p className={`extrato-item-amount ${t.type}`}>
+                    {t.type === 'incoming' ? '+' : '−'} R${' '}
+                    {t.amount.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
