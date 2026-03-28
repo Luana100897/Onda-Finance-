@@ -1,76 +1,69 @@
 🏦 FintechFlow - Simulação Bancária
 
-Link para Acesso: 🔗 Clique aqui para acessar a aplicação
+Link para Acesso: 🔗 Clique aqui para aceder à aplicação
 
-Uma aplicação bancária (Frontend simulado) focada na qualidade de código, arquitetura escalável, UX fluida e segurança de dados em contexto de produção.
+Esta aplicação é uma simulação de frontend bancário desenvolvida para o desafio JobZ_Talentos, focada em arquitetura escalável, experiência de utilizador (UX) e segurança de dados.
 
 🚀 Decisões Técnicas Adotadas
 
-O projeto foi estruturado utilizando as melhores práticas do ecossistema React para garantir manutenibilidade e performance:
+O projeto foi construído utilizando as melhores práticas do ecossistema React:
 
-Zustand: Gerenciamento de estado global leve e reativo, ideal para dados financeiros.
+Zustand: Gestão de estado global leve para o saldo e dados do utilizador.
 
-React Query + Axios: Gerenciamento de requisições com cache automático e sincronização de saldo/extrato.
+React Query + Axios: Sincronização automática de dados e gestão de cache.
 
-React Hook Form + Zod: Validação rigorosa de formulários e tipos, garantindo que apenas dados válidos circulem na app.
+Tailwind + shadcn/ui: Interface moderna, responsiva e acessível.
 
-Tailwind + shadcn/ui: Interface moderna, responsiva e com foco total em acessibilidade.
+React Hook Form + Zod: Validação rigorosa de formulários e segurança de tipos.
 
-Vitest: Testes unitários focados na lógica de negócio (ex: validação de saldo para transferência).
+Vite: Build tool ultra-rápida para uma melhor experiência de desenvolvimento.
 
-🔒 Segurança (Proteção do Aplicativo)
+🔒 Segurança (Proteção da Aplicação)
 
-Conforme os requisitos de segurança para aplicações financeiras, o projeto considera as seguintes proteções:
+Para uma fintech, a segurança é o pilar principal. Implementámos as seguintes camadas:
 
-1. Engenharia Reversa
+1. Prevenção contra Engenharia Reversa
 
-Minificação e Ofuscação: O processo de build transforma o código em um formato ilegível para humanos, dificultando o entendimento da lógica interna.
+Minificação: O código JavaScript é compactado e transformado para dificultar a leitura humana.
 
-Remoção de Sourcemaps: Sourcemaps são desativados em produção para que o código original não seja exposto no navegador.
+Desativação de Sourcemaps: Em produção, os mapas de código estão desativados para proteger a lógica de negócio original.
 
-2. Vazamento de Dados
+2. Prevenção contra Vazamento de Dados
 
-HttpOnly Cookies: Recomendação de uso de cookies protegidos para tokens JWT, evitando acesso via JavaScript (XSS).
+Sanitização via Zod: Todos os dados de entrada são validados antes de qualquer processamento.
 
-Sanitização via Zod: Todos os inputs são limpos e validados no cliente antes de chegarem ao estado da aplicação.
+Content Security Policy (CSP): Bloqueio de execução de scripts de terceiros não autorizados.
 
-Content Security Policy (CSP): Definição de origens confiáveis para carregamento de recursos, mitigando injeções maliciosas.
+3. Integridade e Confidencialidade
 
-3. Integridade
+HTTPS: Encriptação obrigatória em trânsito para todos os dados.
 
-Validação Dupla: As regras de negócio são aplicadas no frontend para UX e devem ser espelhadas no backend para impedir fraudes via interceptação de pacotes.
+Validação Dupla: As regras de negócio são aplicadas no Frontend e preparadas para validação rigorosa no Backend.
 
-Protocolo HTTPS: Uso obrigatório de TLS/SSL para garantir que os dados não sejam alterados durante o trânsito (Integridade de ponta a ponta).
+🛠️ Como executar localmente
 
-🛠️ Como rodar o projeto localmente
+Instalar dependências:
 
-1. Clonar e Instalar dependências
-
-git clone [https://github.com/luana100897/Onda-Finance.git](https://github.com/luana100897/Onda-Finance.git)
-cd Onda-Finance
 npm install
 
 
-2. Rodar a Aplicação
+Iniciar servidor de desenvolvimento:
 
 npm run dev
-Acesse: http://localhost:5173
 
 
-Credenciais de acesso:
+Credenciais de Teste:
 
 E-mail: maria@fintechflow.com
-Senha: Senha@1234
 
+Senha: Senha@1234
 
 📈 Melhorias Futuras
 
-i18n: Suporte para múltiplos idiomas e moedas locais.
+Implementação de i18n (Internacionalização).
 
-Gráficos Analíticos: Visualização de gastos e receitas com Recharts.
+Gráficos detalhados de despesas mensais.
 
-PWA: Transformar a aplicação em um App instalável (Offline-first).
+Conversão para PWA (Progressive Web App).
 
-Integração com Backend: Substituição do Mock por uma API REST real.
-
-Este repositório serve como material descritivo e portfólio para o desafio JobZ_Talentos.
+Desenvolvido por Luana Caroline para fins de avaliação técnica.
