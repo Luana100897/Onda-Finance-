@@ -52,7 +52,7 @@ export function Login() {
           <div className="login-brand-icon">
             <Wallet color="white" size={24} />
           </div>
-          <span className="login-brand-name">FintechFlow</span>
+          <span className="login-brand-name">OndaFinance</span>
         </div>
 
         <div className="login-heading">
