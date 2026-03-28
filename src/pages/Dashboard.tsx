@@ -64,7 +64,7 @@ export function Dashboard() {
             <div className="mobile-header-icon">
               <Wallet color="white" size={16} />
             </div>
-            <span className="mobile-header-name">FintechFlow</span>
+            <span className="mobile-header-name">OndaFinance</span>
           </div>
           <div className="mobile-header-avatar">{user?.name.charAt(0)}</div>
         </div>
