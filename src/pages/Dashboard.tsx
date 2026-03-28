@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useAuthStore } from '@/store/useAuthStore';
 import { useTransactions } from '@/hooks/useTransactions';
 import { TransferForm } from '@/components/forms/TransferForm';
@@ -14,6 +14,12 @@ export function Dashboard() {
   const [showBalance, setShowBalance] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isExtratoOpen, setIsExtratoOpen] = useState(false);
+
+  useEffect(() => {
+    const anyModalOpen = isModalOpen || isExtratoOpen;
+    document.body.style.overflow = anyModalOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [isModalOpen, isExtratoOpen]);
 
   return (
     <div className="dashboard-wrapper">
