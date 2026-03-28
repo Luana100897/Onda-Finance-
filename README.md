@@ -1,6 +1,6 @@
 🏦 FintechFlow - Simulação Bancária
 
-Link para Acesso: 🔗 Clique aqui para aceder à aplicação
+Link para Acesso: 🔗 [onda-finance-kjvo.vercel.app](https://onda-finance-kjvo.vercel.app)
 
 Esta aplicação é uma simulação de frontend bancário desenvolvida para o desafio JobZ_Talentos, focada em arquitetura escalável, experiência de utilizador (UX) e segurança de dados.
 
@@ -20,7 +20,8 @@ Vite: Build tool ultra-rápida para uma melhor experiência de desenvolvimento.
 
 🔒 Segurança (Proteção da Aplicação)
 
-Para uma fintech, a segurança é o pilar principal. Implementámos as seguintes camadas:
+Para uma fintech, a segurança é o pilar principal. 
+Implementamos as seguintes camadas:
 
 1. Prevenção contra Engenharia Reversa
 
