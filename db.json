@@ -1,0 +1,10 @@
+{
+  "transfers": [],
+  "users": [
+    {
+      "id": "u1",
+      "name": "Maria da Silva",
+      "email": "maria@fintechflow.com"
+    }
+  ]
+}
