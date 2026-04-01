@@ -1,4 +1,4 @@
-🏦 FintechFlow - Simulação Bancária
+🏦 OndaFinance - Simulação Bancária
 
 Link para Acesso: 🔗 [onda-finance-kjvo.vercel.app](https://onda-finance-kjvo.vercel.app)
 
